@@ -1,7 +1,10 @@
 # Resume Matcher — AI Resume-to-Job Matcher & Application Copilot
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ai--resume--to--job--matcher.vercel.app-0070f3?style=for-the-badge&logo=vercel&logoColor=white)](https://ai-resume-to-job-matcher.vercel.app/)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshreypitroda18-tech%2Fai-resume-to-job-matcher&env=GEMINI_API_KEY&envDescription=Google%20Gemini%20API%20Key%20(Optional%20-%20app%20will%20fallback%20to%20built-in%20heuristic%20engine%20if%20omitted))
 
+> **Live Application:** [https://ai-resume-to-job-matcher.vercel.app/](https://ai-resume-to-job-matcher.vercel.app/)
+> 
 > Turn resume guesswork into a data-backed, high-callback editing process.
 
 A full-stack, privacy-first career copilot web application where job seekers can analyze an existing resume or build one from scratch, receive an **explainable match score**, bridge critical skill gaps, and export **tailored ATS-ready resumes and cover letters** all the way to a submitted application.
@@ -134,9 +137,11 @@ npm run build
 
 ---
 
-## 🌐 Deploy to Vercel
+## 🌐 Live Application & Deployment
 
-The fastest way to deploy this Next.js 15 application is on [Vercel](https://vercel.com):
+* **Production URL:** [https://ai-resume-to-job-matcher.vercel.app/](https://ai-resume-to-job-matcher.vercel.app/)
+
+The application is deployed continuously via [Vercel](https://vercel.com):
 
 ### Option A: 1-Click Deploy
 Click the button below to fork/clone and deploy automatically:

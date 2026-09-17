@@ -1,0 +1,513 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 25% 98%; /* Warm porcelain ivory #FAF8F5 */
+    --foreground: 224 71% 4%;  /* Carbon black #0A0D14 */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --border: 30 10% 90%;
+    --input: 30 10% 90%;
+    --ring: 243 75% 59%;
+  }
+
+  .dark {
+    --background: 228 32% 6%; /* Deep luxury obsidian #080A10 */
+    --foreground: 210 40% 98%;
+    --card: 226 26% 10%;
+    --card-foreground: 210 40% 98%;
+    --border: 226 20% 16%;
+    --input: 226 20% 16%;
+    --ring: 243 75% 59%;
+  }
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================================================= */
+/* 1. DISTINCT HIGHLIGHTED TEXT SYSTEM (Instruction 2) */
+/* ========================================================================= */
+/* ========================================================================= */
+/* 1. EDITORIAL HIGHLIGHT SYSTEM (Custom Typography + Location Palette)     */
+/* ========================================================================= */
+.highlight-editorial {
+  font-family: var(--font-editorial), "Newsreader", "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  display: inline;
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.36em;
+  border-radius: 3px;
+  transition: background-size 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  white-space: normal;
+  text-decoration: none;
+}
+
+.highlight-editorial:hover {
+  background-size: 100% 0.52em;
+}
+
+/* 1. HERO ACCENT: Warm Golden Champagne (Hero / Workspace) */
+.hl-amber {
+  color: #B45309;
+  background-image: linear-gradient(rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0.22));
+}
+.dark .hl-amber {
+  color: #FBBF24;
+  background-image: linear-gradient(rgba(245, 158, 11, 0.28), rgba(245, 158, 11, 0.28));
+}
+
+/* 2. ATS RISK & FORMAT INSPECTION: Royal Indigo */
+.hl-indigo {
+  color: #4338CA;
+  background-image: linear-gradient(rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.18));
+}
+.dark .hl-indigo {
+  color: #A5B4FC;
+  background-image: linear-gradient(rgba(129, 140, 248, 0.26), rgba(129, 140, 248, 0.26));
+}
+
+/* 3. RECRUITER 6-SECOND HEATMAP: Terracotta Rose */
+.hl-rose {
+  color: #BE123C;
+  background-image: linear-gradient(rgba(244, 63, 94, 0.18), rgba(244, 63, 94, 0.18));
+}
+.dark .hl-rose {
+  color: #FDA4AF;
+  background-image: linear-gradient(rgba(244, 63, 94, 0.28), rgba(244, 63, 94, 0.28));
+}
+
+/* 4. GOOGLE DIFF REWRITES: Sage Emerald */
+.hl-emerald {
+  color: #047857;
+  background-image: linear-gradient(rgba(16, 185, 129, 0.18), rgba(16, 185, 129, 0.18));
+}
+.dark .hl-emerald {
+  color: #6EE7B7;
+  background-image: linear-gradient(rgba(16, 185, 129, 0.26), rgba(16, 185, 129, 0.26));
+}
+
+/* 5. MARKET SALARY INTELLIGENCE: Slate Teal */
+.hl-teal {
+  color: #0F766E;
+  background-image: linear-gradient(rgba(20, 184, 166, 0.18), rgba(20, 184, 166, 0.18));
+}
+.dark .hl-teal {
+  color: #5EEAD4;
+  background-image: linear-gradient(rgba(20, 184, 166, 0.28), rgba(20, 184, 166, 0.28));
+}
+
+/* 6. AI ENGINE PIPELINE / HOW IT WORKS: Iris Violet */
+.hl-violet {
+  color: #6D28D9;
+  background-image: linear-gradient(rgba(139, 92, 246, 0.18), rgba(139, 92, 246, 0.18));
+}
+.dark .hl-violet {
+  color: #C4B5FD;
+  background-image: linear-gradient(rgba(139, 92, 246, 0.26), rgba(139, 92, 246, 0.26));
+}
+
+/* 7. FINAL CTA: Luminous Luxury Gold */
+.hl-gold {
+  color: #FEF08A;
+  background-image: linear-gradient(rgba(253, 224, 71, 0.26), rgba(253, 224, 71, 0.26));
+}
+.dark .hl-gold {
+  color: #FEF08A;
+  background-image: linear-gradient(rgba(253, 224, 71, 0.26), rgba(253, 224, 71, 0.26));
+}
+
+/* Backward-compatible base classes */
+.highlight-text {
+  font-family: var(--font-editorial), "Newsreader", "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  display: inline;
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.36em;
+  border-radius: 3px;
+  transition: background-size 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #4338CA;
+  background-image: linear-gradient(rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.18));
+}
+.dark .highlight-text {
+  color: #A5B4FC;
+  background-image: linear-gradient(rgba(129, 140, 248, 0.26), rgba(129, 140, 248, 0.26));
+}
+.highlight-text:hover {
+  background-size: 100% 0.52em;
+}
+
+.highlight-text-warm {
+  font-family: var(--font-editorial), "Newsreader", "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  display: inline;
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.36em;
+  border-radius: 3px;
+  transition: background-size 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #B45309;
+  background-image: linear-gradient(rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0.22));
+}
+.dark .highlight-text-warm {
+  color: #FBBF24;
+  background-image: linear-gradient(rgba(245, 158, 11, 0.28), rgba(245, 158, 11, 0.28));
+}
+.highlight-text-warm:hover {
+  background-size: 100% 0.52em;
+}
+
+/* ========================================================================= */
+/* 2. REFINED EXECUTIVE EDITORIAL GRADIENTS (Instruction 4 - No Vibe-Coding) */
+/* ========================================================================= */
+.am-text-gradient {
+  background: linear-gradient(135deg, #0F172A 15%, #334155 60%, #1E293B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .am-text-gradient {
+  background: linear-gradient(135deg, #FFFFFF 15%, #E2E8F0 60%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Controlled Indigo Sheen Gradient for Hero focal phrases */
+.am-text-accent {
+  background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 55%, #6366F1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .am-text-accent {
+  background: linear-gradient(135deg, #FFFFFF 0%, #C7D2FE 55%, #818CF8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ========================================================================= */
+/* 3. REFINED ELEVATION & SOLID PANELS (Instruction 4 & 5 - Less Congestion) */
+/* ========================================================================= */
+.glass-panel {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-panel {
+  background: #0D111A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-hover {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-card-hover:hover {
+  border-color: rgba(129, 140, 248, 0.28);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================================================= */
+/* 4. BUTTONS & MICRO-INTERACTIONS (Instruction 1 & 10) */
+/* ========================================================================= */
+.am-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.625rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #0A0D14;
+  color: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.dark .am-btn-primary {
+  background-color: #FFFFFF;
+  color: #0A0D14;
+  box-shadow: 0 1px 8px rgba(255, 255, 255, 0.12);
+}
+
+.am-btn-primary:hover {
+  transform: translateY(-1px);
+  background-color: #1E293B;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+.dark .am-btn-primary:hover {
+  background-color: #F1F5F9;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.am-btn-primary:active {
+  transform: translateY(0);
+}
+
+.am-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: transparent;
+  color: #0A0D14;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+.dark .am-btn-secondary {
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.am-btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+.dark .am-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Category Pill Label */
+.am-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(99, 102, 241, 0.07);
+  color: #4F46E5;
+  border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+.dark .am-category-tag {
+  background-color: rgba(129, 140, 248, 0.09);
+  color: #A5B4FC;
+  border: 1px solid rgba(129, 140, 248, 0.22);
+}
+
+/* ========================================================================= */
+/* 5. HORIZONTAL SCROLLING UTILITIES (Instruction 6) */
+/* ========================================================================= */
+.horizontal-scroll-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+
+.horizontal-scroll-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.snap-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Subtle Progress Indicator Bar */
+.scroll-progress-bar {
+  height: 3px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.dark .scroll-progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.scroll-progress-thumb {
+  height: 100%;
+  background: #0A0D14;
+  border-radius: 9999px;
+  transition: width 0.15s ease-out;
+}
+
+.dark .scroll-progress-thumb {
+  background: #FFFFFF;
+}
+
+/* ========================================================================= */
+/* 6. SUBTLE ANIMATIONS & ACCESSIBILITY (Instruction 1) */
+/* ========================================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Smooth tab fade transition */
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-tab-fade {
+  animation: tabFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Modal, Popover, & Drawer Entrance Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn95 {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInFromTop {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation-duration: 0.18s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.zoom-in-95 {
+  animation-name: zoomIn95;
+}
+
+.slide-in-from-top-2 {
+  animation-name: slideInFromTop;
+}
+
+.slide-in-from-bottom {
+  animation-name: slideInFromBottom;
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}

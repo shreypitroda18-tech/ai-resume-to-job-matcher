@@ -1,5 +1,7 @@
 # Resume Matcher — AI Resume-to-Job Matcher & Application Copilot
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshreypitroda18-tech%2Fai-resume-to-job-matcher&env=GEMINI_API_KEY&envDescription=Google%20Gemini%20API%20Key%20(Optional%20-%20app%20will%20fallback%20to%20built-in%20heuristic%20engine%20if%20omitted))
+
 > Turn resume guesswork into a data-backed, high-callback editing process.
 
 A full-stack, privacy-first career copilot web application where job seekers can analyze an existing resume or build one from scratch, receive an **explainable match score**, bridge critical skill gaps, and export **tailored ATS-ready resumes and cover letters** all the way to a submitted application.
@@ -89,7 +91,7 @@ Built with Next.js 15, TypeScript, Tailwind CSS, and powered by a dual-engine ar
 |---|---|---|
 | **Frontend** | React 19, Next.js 15 (App Router), Tailwind CSS | Responsive, accessible, dark/light theme, Linear/Notion-level calm aesthetic |
 | **Backend** | Next.js Server Route Handlers | `/api/match` and `/api/fetch-job-url` with zero-latency execution |
-| **AI Layer** | Google Gemini 2.5 Flash + Smart ATS Heuristics | Deep generative analysis with 100% offline fallback reliability |
+| **AI Layer** | Google Gemini 2.0 Flash + Smart ATS Heuristics | Deep generative analysis with 100% offline fallback reliability |
 | **Document Parsing** | `pdf-parse` + `mammoth` | Server-side in-memory text and structure extraction |
 | **Document Export** | `docx` + Print CSS | Native Word `.docx`, Printable ATS PDF, and Markdown `.md` |
 | **Scraper** | `cheerio` + Node HTTP | Live job posting URL importer with boilerplate stripping |
@@ -129,3 +131,23 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```bash
 npm run build
 ```
+
+---
+
+## 🌐 Deploy to Vercel
+
+The fastest way to deploy this Next.js 15 application is on [Vercel](https://vercel.com):
+
+### Option A: 1-Click Deploy
+Click the button below to fork/clone and deploy automatically:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshreypitroda18-tech%2Fai-resume-to-job-matcher&env=GEMINI_API_KEY&envDescription=Google%20Gemini%20API%20Key%20(Optional%20-%20app%20will%20fallback%20to%20built-in%20heuristic%20engine%20if%20omitted))
+
+### Option B: Deploy from GitHub Dashboard
+1. Go to [vercel.com/new](https://vercel.com/new) and authenticate with your GitHub account.
+2. Select repository: **`shreypitroda18-tech/ai-resume-to-job-matcher`**.
+3. **Framework Preset:** Vercel automatically detects `Next.js`.
+4. **Environment Variables** *(Optional)*:
+   - Name: `GEMINI_API_KEY`
+   - Value: `your_gemini_api_key` (optional — MatchPoint AI includes a zero-dependency offline heuristic engine that runs if this key is omitted).
+5. Click **Deploy**. Your application will be live in under 60 seconds with automatic continuous deployments on every `git push`!
